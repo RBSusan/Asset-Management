@@ -251,6 +251,7 @@ function initForm() {
     .then(function (res) {
       if (res.ok) {
         form.reset();
+        speakFormSubmission();
         if (msgOk) {
           msgOk.hidden = false;
           msgOk.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -379,7 +380,22 @@ function initTheme() {
 }
 
 /* ============================================================
-   8. WHATSAPP FLOATING BUTTON
+   8. FORM SUBMISSION VOICE HOOK (.claude/hook/form-voice.js)
+   Speaks "Gam Sia for your submission" on successful form send.
+   Inlined here because .claude/ is gitignored.
+   ============================================================ */
+function speakFormSubmission() {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  var utterance = new SpeechSynthesisUtterance('Gam Sia for your submission');
+  utterance.lang  = 'en';
+  utterance.rate  = 0.88;
+  utterance.pitch = 1.05;
+  window.speechSynthesis.speak(utterance);
+}
+
+/* ============================================================
+   9. WHATSAPP FLOATING BUTTON
    Re-triggers entrance animation each time the user returns to the tab.
    ============================================================ */
 function initWhatsApp() {

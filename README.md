@@ -14,7 +14,7 @@ A responsive one-page marketing website for Red Beacon Asset Management — an i
 - Hero section with animated counters (green assets deployed, ESG-rated portfolio %, years of impact investing)
 - Four ESG-focused USP cards with sustainability icons (leaf, trending-up, shield-check, globe)
 - Testimonials carousel on a natural-linen background with auto-advance and manual controls
-- Contact / enquiry form with client-side validation and async submission via [FormSubmit](https://formsubmit.co)
+- Contact / enquiry form with client-side validation, async submission via [FormSubmit](https://formsubmit.co), and voice confirmation ("Gam Sia for your submission") via the Web Speech API
 - Dark / light theme toggle — persists to `localStorage`, respects `prefers-color-scheme` on first visit
 - Scroll-triggered fade-in animations via IntersectionObserver
 - Fully responsive — mobile, tablet, and desktop
@@ -27,9 +27,10 @@ The stylesheet uses a full sustainability token set in `:root` — deep forest g
 ## Project Structure
 
 ```
-index.html       # Page structure and ESG-focused content
-styles.css       # Mobile-first stylesheet with sustainability design tokens
-script.js        # Vanilla JS — nav, counters, carousel, form, animations
+index.html                     # Page structure and ESG-focused content
+styles.css                     # Mobile-first stylesheet with sustainability design tokens
+script.js                      # Vanilla JS — nav, counters, carousel, form, animations, voice hook
+.claude/hook/form-voice.js     # Local reference for the form-submission voice hook (gitignored)
 .github/workflows/deploy.yml   # GitHub Actions — deploys to GitHub Pages on push to main
 ```
 
