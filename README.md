@@ -4,6 +4,8 @@
 
 **Live site: https://rbsusan.github.io/Asset-Management/**
 
+![Site screenshot](screenshot.png)
+
 A responsive one-page marketing website for an asset management firm. Built with vanilla HTML, CSS, and JavaScript - no frameworks or dependencies.
 
 ## Features
