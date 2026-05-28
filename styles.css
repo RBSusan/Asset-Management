@@ -83,6 +83,19 @@ input, select, textarea, button { font-family: inherit; }
   --ease: 0.3s ease;
 }
 
+[data-theme="dark"] {
+  --white:      #0f1a14;
+  --light:      #162214;
+  --light-mid:  #1c2e1e;
+  --light-warm: #1a1a14;
+  --text:       #e8f0e9;
+  --text-mid:   #b8ccba;
+  --muted:      #7a9b7e;
+  --border:     #2e4a32;
+  --shadow:     0 4px 20px rgba(0, 0, 0, 0.40);
+  --shadow-lg:  0 10px 36px rgba(0, 0, 0, 0.55);
+}
+
 /* ── TYPOGRAPHY ───────────────────────────────────────────── */
 h1, h2, h3, h4 {
   font-family: var(--font-head);
@@ -382,6 +395,30 @@ p  { line-height: 1.7; }
     padding: 8px 20px !important;
   }
 }
+
+/* ── THEME TOGGLE ─────────────────────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--ease), background var(--ease);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  background: var(--light-mid);
+}
+.theme-toggle .icon-dark  { display: inline; }
+.theme-toggle .icon-light { display: none;   }
+[data-theme="dark"] .theme-toggle .icon-dark  { display: none;   }
+[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
 
 /* ============================================================
    HERO
@@ -979,4 +1016,68 @@ textarea {
   }
 
   html { scroll-behavior: auto; }
+}
+
+/* ── WHATSAPP FLOATING BUTTON ─────────────────────────────── */
+.wa-float {
+  position: fixed;
+  bottom: 32px;
+  left: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 12px 18px 12px 14px;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.40);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+.wa-float:hover,
+.wa-float:focus-visible {
+  background: #1ebe5d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.50);
+  color: #fff;
+}
+.wa-float:active {
+  transform: translateY(-1px);
+}
+.wa-float__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: #fff;
+}
+.wa-float__label {
+  white-space: nowrap;
+}
+
+/* Tooltip bubble — hides label on mobile, shows on hover on desktop */
+@media (max-width: 767px) {
+  .wa-float {
+    padding: 13px;
+    border-radius: 50%;
+  }
+  .wa-float__label {
+    display: none;
+  }
+}
+
+/* Entrance animation */
+@keyframes wa-pop-in {
+  from { opacity: 0; transform: scale(0.6) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.wa-float {
+  animation: wa-pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: 1.2s;
+  opacity: 0;
 }

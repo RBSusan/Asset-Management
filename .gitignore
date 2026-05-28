@@ -24,6 +24,10 @@ ntuser.*
 .vscode-shared/
 .ms-ad/
 
+# Node / tooling
+node_modules/
+package-lock.json
+
 # Secrets & credentials — never commit these
 .env
 .env.*

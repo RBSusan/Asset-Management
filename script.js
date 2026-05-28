@@ -4,12 +4,14 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
+  initTheme();
   initNav();
   initSmoothScroll();
   initCounters();
   initCarousel();
   initAnimations();
   initForm();
+  initWhatsApp();
 
   const yearEl = document.getElementById('copyright-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -352,4 +354,44 @@ function clearError(field) {
   var errorId = 'err-' + field.id;
   var errEl   = document.getElementById(errorId);
   if (errEl) errEl.textContent = '';
+}
+
+/* ============================================================
+   7. THEME TOGGLE
+   Persists preference to localStorage; respects prefers-color-scheme
+   on first visit.
+   ============================================================ */
+function initTheme() {
+  const btn  = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  if (!btn) return;
+
+  const stored = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = stored ?? (prefersDark ? 'dark' : 'light');
+  root.setAttribute('data-theme', initial);
+
+  btn.addEventListener('click', function () {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+}
+
+/* ============================================================
+   8. WHATSAPP FLOATING BUTTON
+   Re-triggers entrance animation each time the user returns to the tab.
+   ============================================================ */
+function initWhatsApp() {
+  const btn = document.getElementById('wa-float');
+  if (!btn) return;
+
+  // Re-trigger entrance animation each time the user returns to the tab
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') {
+      btn.style.animation = 'none';
+      btn.offsetHeight; // force reflow
+      btn.style.animation = '';
+    }
+  });
 }

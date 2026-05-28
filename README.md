@@ -15,6 +15,7 @@ A responsive one-page marketing website for Red Beacon Asset Management — an i
 - Four ESG-focused USP cards with sustainability icons (leaf, trending-up, shield-check, globe)
 - Testimonials carousel on a natural-linen background with auto-advance and manual controls
 - Contact / enquiry form with client-side validation and async submission via [FormSubmit](https://formsubmit.co)
+- Dark / light theme toggle — persists to `localStorage`, respects `prefers-color-scheme` on first visit
 - Scroll-triggered fade-in animations via IntersectionObserver
 - Fully responsive — mobile, tablet, and desktop
 - WCAG-accessible: focus rings, ARIA labels, reduced-motion support
