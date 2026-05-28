@@ -19,6 +19,18 @@ ntuser.*
 # Claude / editor
 .claude/
 .claude.json
+.mcp.json
 .vscode/
 .vscode-shared/
 .ms-ad/
+
+# Secrets & credentials — never commit these
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+secrets.*
+credentials.*
