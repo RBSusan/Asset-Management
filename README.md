@@ -1,4 +1,4 @@
-﻿# Asset Management
+# Red Beacon Asset Management
 
 [![Deploy to GitHub Pages](https://github.com/RBSusan/Asset-Management/actions/workflows/deploy.yml/badge.svg)](https://github.com/RBSusan/Asset-Management/actions/workflows/deploy.yml)
 
@@ -6,25 +6,30 @@
 
 ![Site screenshot](screenshot.png)
 
-A responsive one-page marketing website for an asset management firm. Built with vanilla HTML, CSS, and JavaScript - no frameworks or dependencies.
+A responsive one-page marketing website for Red Beacon Asset Management — an institutional ESG investment firm specialising in sustainability assets, green bonds, and renewable infrastructure. Built with vanilla HTML, CSS, and JavaScript; no frameworks or build step required.
 
 ## Features
 
-- Sticky navigation with smooth scrolling
-- Hero section with animated counters (AUM, clients, years)
-- USP cards with hover effects
-- Testimonials carousel with auto-advance and manual controls
-- Contact form with client-side validation and async submission via [FormSubmit](https://formsubmit.co)
-- Scroll-triggered fade-in animations
-- Fully responsive - mobile, tablet, and desktop
+- Sticky navigation with deep-forest green design system and leaf logo mark
+- Hero section with animated counters (green assets deployed, ESG-rated portfolio %, years of impact investing)
+- Four ESG-focused USP cards with sustainability icons (leaf, trending-up, shield-check, globe)
+- Testimonials carousel on a natural-linen background with auto-advance and manual controls
+- Contact / enquiry form with client-side validation and async submission via [FormSubmit](https://formsubmit.co)
+- Scroll-triggered fade-in animations via IntersectionObserver
+- Fully responsive — mobile, tablet, and desktop
+- WCAG-accessible: focus rings, ARIA labels, reduced-motion support
+
+## Design System
+
+The stylesheet uses a full sustainability token set in `:root` — deep forest greens (`--primary`, `--primary-dark`, `--primary-mid`), spring-leaf accent (`--accent: #6ab04c`), earth/stone neutrals, and natural-linen surfaces. All colours, spacing, shadows, and motion are referenced via CSS variables; no raw values are hardcoded outside `:root`.
 
 ## Project Structure
 
 ```
-index.html       # Page structure and content
-styles.css       # Mobile-first stylesheet with CSS variables
-script.js        # Vanilla JS - nav, counters, carousel, form
-.github/workflows/deploy.yml   # GitHub Actions - deploys to GitHub Pages on push to main
+index.html       # Page structure and ESG-focused content
+styles.css       # Mobile-first stylesheet with sustainability design tokens
+script.js        # Vanilla JS — nav, counters, carousel, form, animations
+.github/workflows/deploy.yml   # GitHub Actions — deploys to GitHub Pages on push to main
 ```
 
 ## Running Locally
@@ -40,7 +45,3 @@ Changes to any file are visible immediately on browser refresh.
 ## Deployment
 
 The site is automatically deployed to GitHub Pages on every push to `main` via GitHub Actions.
-
-## Contact Form Setup
-
-Before going live, replace `your-email@example.com` in the `<form action>` attribute (`index.html` line 304) with the real destination address. FormSubmit will send an activation email on the first submission - that link must be clicked before enquiries are delivered.
