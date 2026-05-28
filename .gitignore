@@ -1,0 +1,24 @@
+# Windows user profile files
+AppData/
+Contacts/
+Desktop/
+Documents/
+Downloads/
+Favorites/
+Links/
+Music/
+OneDrive/
+OneDrive - Red Beacon/
+Pictures/
+Saved Games/
+Searches/
+Videos/
+NTUSER.DAT*
+ntuser.*
+
+# Claude / editor
+.claude/
+.claude.json
+.vscode/
+.vscode-shared/
+.ms-ad/
